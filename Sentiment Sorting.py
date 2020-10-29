@@ -29,6 +29,7 @@ max = df[df['compound']==df['compound'].max()]
 min = df[df['compound']==df['compound'].min()]
 #The min and max are combined as poles
 poles = [min,max]
+print(poles)
 
 #To find the most common words, the company purposes need to be added together
 list = []
@@ -36,7 +37,7 @@ for l in df_merged['Purpose']:
     list.append(l)
 #The resulting matrix of company purposes need to be converted to a data frame and the words need to be split up before each word can be counted for its frequency
 most_common_words = Counter((pd.DataFrame(list))[0].str.cat(sep = ' ').split()).most_common()[0:10]
-
+print(most_common_words)
 
 def main():
     return poles, most_common_words
